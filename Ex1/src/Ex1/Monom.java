@@ -72,7 +72,7 @@ public class Monom implements function{
 		String x=s[1];
 		String mark=s[2];
 		String power_=s[3];
-
+        
 		//We will divide all existing cases
 
 		if(power_.equals("") && !x.equals("") && mark.equals(""))
@@ -85,6 +85,7 @@ public class Monom implements function{
 			power_="0";
 		}
 		else  {
+			
 			throw new RuntimeException("invaild input");
 
 		}
@@ -101,7 +102,7 @@ public class Monom implements function{
 			set_power(b);
 		}
 		catch(NumberFormatException e){
-			System.out.println("invaild input");
+			//System.out.println("invaild input");
 		}
 	}
 	/**
@@ -137,7 +138,9 @@ public class Monom implements function{
 				ceack_coef=false;
 			}
 			else {
-
+                if(monom.charAt(i)==' '){
+                	continue;
+                }
 				power_+=monom.charAt(i);
 				ceack_coef=false;
 			}
@@ -154,9 +157,22 @@ public class Monom implements function{
 			return true;
 		return false;
 	}
+	public boolean equals(Object monom){
+		Monom m=(Monom)monom;
+		if(get_coefficient()==0 && ((Monom) monom).get_coefficient()==0)
+			return true ;
+
+		if(Math.abs(get_coefficient()-((Monom) monom).get_coefficient())<=EPSILON  && get_power()==((Monom) monom).get_power())
+			return true;
+		return false;
+		
+		
+	}
+	
 	public void add(Monom m)  {
 
 		if(get_power()==m.get_power()){
+			
 			set_coefficient(get_coefficient()+m.get_coefficient());
 		}
 		else throw new RuntimeException("the the power not the same ");

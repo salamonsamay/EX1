@@ -120,6 +120,9 @@ public class Polynom implements Polynom_able{
 				return;
 			}
 			if(monoms.get(i).get_power()==m1.get_power()){
+				
+					
+				
 				monoms.get(i).add(m1);
 				return;
 			}
@@ -154,6 +157,10 @@ public class Polynom implements Polynom_able{
 	private void substract(Monom m) {
 		for(int i=0;i<monoms.size();i++){
 			if(monoms.get(i).isTheSamePower(m)){
+				if(monoms.get(i).get_coefficient()-monoms.get(i).get_coefficient()==0){
+					monoms.remove(i);
+					return;
+				}
 				monoms.get(i).subtract(m);
 				return;
 			}
@@ -187,29 +194,26 @@ public class Polynom implements Polynom_able{
 	 * @param p1 the polynom we Compare to
 	 * @return true if is equals else false
 	 */
-	@Override
-	public boolean equals(Object p1) {
-		if(equals(p1))
-			return true;
-		else return false;
-		
-		
-	/*	if(p1 instanceof Polynom ){
-			if(getSize()== ((Polynom) p1).getSize()){
-				Iterator<Monom> thisIterator=iteretor();
-				Iterator<Monom> otherIterator=p1.iteretor();
 
-				while (thisIterator.hasNext()){
-					if(!(thisIterator.next().equals(otherIterator.next()))){
-						return false;
-					}
-				}
-				return true;
-			}
+	public boolean equals(Object p1) {
+		 
+		Polynom p=(Polynom) p1;
+		if(p.monoms.size()!=monoms.size()){
+			 
 			return false;
 		}
-		return false;
-*/
+		
+      
+		for(int i=0;i<monoms.size();i++){
+			if(!(monoms.get(i).equals(p.monoms.get(i)))){
+				
+				return false;
+			}
+		}
+
+		return true;
+
+
 
 	}
 
