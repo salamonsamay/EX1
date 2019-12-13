@@ -10,14 +10,24 @@ public class ComplexFunction  implements complex_function{
 	Operation operation;
 
 	public ComplexFunction(){};
-
+	/**
+	 * 
+	 * @param operation the operation between the function
+	 * @param left the left function
+	 * @param right the right function
+	 */
 	public ComplexFunction(Operation operation,function left, function right ) {
 		super();
 		this.left = left;
 		this.right = right;
 		this.operation = operation;
 	}
-
+	/**
+	 * 
+	 * @param mark
+	 * @param f1 
+	 * @param f2
+	 */
 	public ComplexFunction( String mark,function f1, function f2) {
 		super();
 
@@ -62,7 +72,10 @@ public class ComplexFunction  implements complex_function{
 	}
 
 
-
+	/**
+	 * the function get x
+	 * and return  the value by cheack the case
+	 */
 	@Override
 	public double f(double x) {
 		switch (operation) {
@@ -92,7 +105,7 @@ public class ComplexFunction  implements complex_function{
 			return new Polynom(s);
 		}
 		catch (Exception e){
-           
+
 		}
 		ArrayList<String> operator=new ArrayList<>();
 		ArrayList<String> fun=new ArrayList<>();
@@ -171,7 +184,9 @@ public class ComplexFunction  implements complex_function{
 
 
 
-	@Override
+	/**
+	 * return copy of this
+	 */
 	public function copy() {
 		// TODO Auto-generated method stub
 		if(right==null){
@@ -182,7 +197,11 @@ public class ComplexFunction  implements complex_function{
 		return other ;
 	}
 
-	@Override
+	/**
+	 * add new function to this in the right side
+	 *  this  movin to the right side
+	 *  the operation between the right side and left side is plus
+	 */
 	public void plus(function f1) {
 		ComplexFunction temp=(ComplexFunction)copy();
 		left=temp;
@@ -193,7 +212,11 @@ public class ComplexFunction  implements complex_function{
 
 	}
 
-	@Override
+	/**
+	 * add new function to this in the right side
+	 *  this  movin to the right side
+	 *  the operation between the right side and left side is mul
+	 */
 	public void mul(function f1) {
 		// TODO Auto-generated method stub
 		ComplexFunction temp=(ComplexFunction)copy();
@@ -204,7 +227,11 @@ public class ComplexFunction  implements complex_function{
 
 	}
 
-	@Override
+	/**
+	 * add new function to this in the right side
+	 *  this  movin to the right side
+	 *  the operation between the right side and left side is div
+	 */
 	public void div(function f1) {
 		// TODO Auto-generated method stub
 		ComplexFunction temp=(ComplexFunction)copy();
@@ -215,7 +242,12 @@ public class ComplexFunction  implements complex_function{
 
 	}
 
-	@Override
+
+	/**
+	 * add new function to this in the right side
+	 *  this  movin to the right side
+	 *  the operation between the right side and left side is max
+	 */
 	public void max(function f1) {
 		// TODO Auto-generated method stub
 		ComplexFunction temp=(ComplexFunction)copy();
@@ -226,8 +258,11 @@ public class ComplexFunction  implements complex_function{
 
 
 	}
-
-	@Override
+	/**
+	 * add new function to this in the right side
+	 *  this  movin to the right side
+	 *  the operation between the right side and left side is min
+	 */
 	public void min(function f1) {
 		// TODO Auto-generated method stub
 		ComplexFunction temp=(ComplexFunction)copy();
@@ -238,7 +273,11 @@ public class ComplexFunction  implements complex_function{
 
 	}
 
-	@Override
+	/**
+	 * add new function to this in the right side
+	 *  this  movin to the right side
+	 *  the operation between the right side and left side is comp
+	 */
 	public void comp(function f1) {
 		// TODO Auto-generated method stub
 		ComplexFunction temp=(ComplexFunction)copy();
@@ -288,11 +327,6 @@ public class ComplexFunction  implements complex_function{
 		return s;
 		//return "ComplexFunction [mark=" + mark + ", left=" + left + ", right=" + right + "]";
 	}
-	public static void main(String[] args){
-		ComplexFunction cf=new ComplexFunction("Plus",new Monom("45x"),new Polynom("3x-4x^4"));
-		cf.mul(new ComplexFunction("Div",new Polynom("2x-2"),new Polynom("7x^7")));
-		System.out.println(cf);
-	}
-
+	
 
 }

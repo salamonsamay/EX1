@@ -23,7 +23,6 @@ public class Functions_GUI implements functions {
 	public function get(int i){
 		return myFunctions.get(i);
 	}
-	@Override
 	public int size() {
 		// TODO Auto-generated method stub
 		return myFunctions.size();
@@ -172,22 +171,7 @@ public class Functions_GUI implements functions {
 		
 	}
 
-	public static void main(String[] args) throws IOException{
-		//ComplexFunction cf3=new ComplexFunction("fuvhfsdvfueis");
-		String path="C:\\Users\\סלומון\\Desktop\\מונחה עצמים\\a.txt";
-		Functions_GUI fg=new Functions_GUI();
-		String data="Comp(Plus(Max(Plus(1.0x^2,1.0x^4+2.0),3.0x),2.0x^4+43.0),1.0x^2)";
-		Polynom p=new Polynom("8");
-		Polynom p2=new Polynom("x^2");
-		Polynom p3=new Polynom("-x^2");
-		Polynom  p4=new Polynom("x^22");
-		//fg.add(p);
-		fg.add(p2);
-		fg.add(p3);
-		fg.add(p4);
-		fg.drawFunctions(400, 400, new Range(-50, 50), new Range(-9999, 9999), 32);
-
-	}
+	
 	public String toString(){
 		String data="";
 		for(function f:myFunctions){

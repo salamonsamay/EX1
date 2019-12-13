@@ -77,10 +77,10 @@ public class PolynomGraph extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(width, height);
 		DataTable data=new DataTable(Double.class, Double.class);
-		ArrayList<Point> points=new ArrayList<>();
+
 
 		for(int i=0;i<fg.size();i++){
-			for (double x = rx.get_min(); x <= rx.get_max(); x+=0.011) {
+			for (double x = rx.get_min(); x <= rx.get_max(); x+=0.01) {
 
                 double y=fg.get(i).f(x);
                 if(!(y>ry.get_max() ||y<ry.get_min())){
