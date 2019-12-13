@@ -108,20 +108,6 @@ public class PolynomGraph extends JFrame{
 	}
 
 
-	public static void main(String[] args) throws FileNotFoundException, IOException {
-		/*	Point p=new Point(3, 4);
-		Point p2=new Point(3, 4);
-		ArrayList<Point> points=new ArrayList<>();
-		points.add(p);
-		points.add(p2);
-		System.out.println(points);
-		 */
-		Range r=new Range(120, 102);
-		Polynom p=new Polynom("x^2");
-		PolynomGraph pg=new PolynomGraph(p,400, 500, r, r,4);
-
-
-
-	}
+	
 
 }
